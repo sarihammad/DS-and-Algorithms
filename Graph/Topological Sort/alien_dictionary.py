@@ -15,21 +15,18 @@ class Solution:
           graph[first[j]].append(second[j])
           break
 
-    visited = {char: 0 for char in graph} # 0: unvisited, 1: visiting, 2: visited
+    visited = {char: 0 for char in graph} # 0: unvisited, 1: visiting
     answer = []
 
     # dfs
     def dfs_get_topological_sort(char):
         if visited[char] == 1:
             return
-        if visited[char] == 2:
-            return
         
         visited[char] = 1
         for neighbor in graph[char]:
             dfs_get_topological_sort(neighbor)
 
-        visited[char] = 2
         answer.insert(0, char) 
 
     # dfs each unvisited node to get the topological sort
