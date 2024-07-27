@@ -18,14 +18,16 @@ class Solution:
         # top down
         def dp(i, memo={}):
             if i in memo:
-                return memo
-            if i < 0:
+                return memo[i]
+            if i == len(s):
                 return True
 
             for word in wordDict:
-                if s[i - len(word) + 1 : i + 1] == word and dp(i - len(word)):
+                if s[i:i + len(word)] == word and dp(i + len(word), memo):
+                    memo[i] = True
                     return True
 
+            memo[i] = False
             return False
-        n = len(s)
-        return dp(n - 1)
+
+        return dp(0)
