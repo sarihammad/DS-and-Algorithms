@@ -13,21 +13,24 @@ class Solution:
 
         return dp[n]
 
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         # top down
         def dp(i, memo={}):
             if i in memo:
                 return memo[i]
-            if i == len(s):
+            if i == 0:
                 return True
-
-            for word in wordDict:
-                if s[i:i + len(word)] == word and dp(i + len(word), memo):
+            
+            for j in range(i):
+                if s[j:i] in wordDict and dp(j, memo):
                     memo[i] = True
                     return True
-
+            
             memo[i] = False
             return False
 
-        return dp(0)
+        n = len(s)
+        return dp(n)
+
