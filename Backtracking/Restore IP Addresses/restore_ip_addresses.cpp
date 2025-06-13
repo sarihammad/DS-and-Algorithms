@@ -30,7 +30,7 @@ private:
 	}
 
 	bool isValid(const std::string& segment) {
-		if (segment.empty() || (segment[0] == '0' && segment.size() > 1)) return false; 
+		if (segment[0] == '0' && segment.size() > 1) return false; 
 		int val = std::stoi(segment);
 		return val >= 0 && val <= 255;
 	}
