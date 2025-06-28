@@ -1,4 +1,4 @@
-class Solution {
+public class SubtreeOfAnotherTree {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         // Step 1: Base Cases
         if (root == null) return false;
