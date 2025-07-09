@@ -1,5 +1,5 @@
 // DFS from grid if letter matches first letter of word, return true if any dfs path reaches index = len(word)
-class Solution {
+class WordSearch {
 public:
     bool exist(vector<vector<char>>& board, string word) {
         int m = board.size(), n = board[0].size();
